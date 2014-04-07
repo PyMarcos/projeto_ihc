@@ -1,0 +1,94 @@
+<html>
+	<head>
+		<title>Detalhes do personagem</title>
+	</head>
+	<body>
+	    <img src = {{ personagem.results.image.medium_url }} /><br>
+		{% autoescape off %}
+		Pequena descricao: {{ personagem.results.deck }}<br>
+		{% endautoescape %}
+		Nascimento: {{personagem.results.birth}}<br>
+        <table border=1>
+        <tr rowspan=2>Informacoes pessoais</tr>
+		<tr>
+		    <td>Super Name</td>
+		    <td>{{ personagem.results.name }}</td>
+        </tr>
+        <tr>
+		    <td>Real Name</td>
+		    <td>{{ personagem.results.real_name }}</td>
+        </tr>
+        <tr>
+		    <td>ID</td>
+		    <td>{{ personagem.results.id }}</td>
+        </tr>
+        <tr>
+            <td>Apelidos</td>
+            <td>
+                {{personagem.results.aliases }}
+            </td>
+        </tr>
+        <tr>
+		    <td>Editor</td>
+		    <td>{{ personagem.results.publisher.name }}</td>
+        </tr>
+        <tr>
+		    <td>Criadores</td>
+		    <td>
+            {% for i in personagem.results.creators %}
+                {{ i.name }}<br>
+            {% endfor %}
+            </td>
+        </tr>
+        <tr>
+		    <td>Genero</td>
+		    <td>{{ personagem.results.gender }}</td>
+        </tr>
+         <tr>
+		    <td>Origem</td>
+		    <td>{{ personagem.results.origin }}</td>
+        </tr>
+        <tr>
+		    <td>Poderes</td>
+		    <td>
+            {% for i in personagem.results.powers %}
+                {{ i.name }}<br>
+            {% endfor %}
+            </td>
+        </tr>
+        </table>
+        <br /><br /><br />
+        Equipes:
+        <table border=1>
+            <tr>
+                <td>Membro de</td>
+                <td>
+                    {% for i in personagem.results.teams %}
+                    {{ i.name }}<br>
+                    {% endfor %}
+                </td>
+            </tr>
+            <tr>
+                <td>Equipes Inimigas</td>
+                <td>
+                    {% for i in personagem.results.team_enemies %}
+                    {{ i.name }}<br>
+                    {% endfor %}
+                </td>
+            </tr>
+            <tr>
+                <td>Equipes amigas</td>
+                <td>
+                    {% for i in personagem.results.team_friends %}
+                    {{ i.name }}<br>
+                    {% endfor %}
+                </td>
+            </tr>
+        </table>
+        <br><br><br><br>
+        Filmes:<br>
+        {% for i in personagem.results.movies %}
+            {{ i.name }}<br>
+        {% endfor %}
+	</body>
+</html>

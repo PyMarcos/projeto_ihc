@@ -1,0 +1,156 @@
+{% extends "ihc/base.html" %}
+{% block content %}
+    <a href="#topo" class="fi-arrow-up" style="position: absolute; bottom: 10px; right: 10px; font-size: 20px">Voltar ao Topo</a>
+
+    <div class="inner-wrap">
+        <div style="height:45px;"></div>
+
+
+        <!-- First Band (Slider) -->
+
+
+        <div class="row">
+            <!--<div class="large-12 columns">
+                <div class="orbit-container">
+                    <ul style="height: 388px;" class="example-orbit	 swipe-next" data-orbit="">
+                        <li style="" class=""><img src="{{ hulk.image.small_url }}"></li>
+                        <li class="" style=""><img src="{{ batman.image.small_url }}"></li>
+                        <li class="active" style=""><img src="{{ superman.image.small_url }}"></li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr>-->
+
+
+            <!-- Three-up Content Blocks -->
+            <a name="topo"></a>
+            <div class="" style="margin: 10px;">
+                <dl class="sub-nav sub-nav-custom" data-magellan-expedition="" style="color:#903;">
+                    <dd data-magellan-arrival="A">
+                        <a href="#A">A</a>
+                    </dd>
+                    <dd data-magellan-arrival="B">
+                        <a href="#B">B</a>
+                    </dd>
+                    <dd data-magellan-arrival="C">
+                        <a href="#C">C</a>
+                    </dd>
+                    <dd data-magellan-arrival="D">
+                        <a href="#D">D</a>
+                    </dd>
+                    <dd data-magellan-arrival="E">
+                        <a href="#E">E</a>
+                    </dd>
+                    <dd data-magellan-arrival="F">
+                        <a href="#F">F</a>
+                    </dd>
+                    <dd data-magellan-arrival="G">
+                        <a href="#G">G</a>
+                    </dd>
+                    <dd data-magellan-arrival="H">
+                        <a href="#H">H</a>
+                    </dd>
+                    <dd data-magellan-arrival="I">
+                        <a href="#I">I</a>
+                    </dd>
+                    <dd data-magellan-arrival="J">
+                        <a href="#J">J</a>
+                    </dd>
+                    <dd data-magellan-arrival="K">
+                        <a href="#K">K</a>
+                    </dd>
+                    <dd data-magellan-arrival="L">
+                        <a href="#L">L</a>
+                    </dd>
+                    <dd data-magellan-arrival="M">
+                        <a href="#M">M</a>
+                    </dd>
+                    <dd data-magellan-arrival="N">
+                        <a href="#N">N</a>
+                    </dd>
+                    <dd data-magellan-arrival="O">
+                        <a href="#O">O</a>
+                    </dd>
+                    <dd data-magellan-arrival="P">
+                        <a href="#P">P</a>
+                    </dd>
+                    <dd data-magellan-arrival="Q">
+                        <a href="#Q">Q</a>
+                    </dd>
+                    <dd data-magellan-arrival="R">
+                        <a href="#R">R</a>
+                    </dd>
+                    <dd data-magellan-arrival="S">
+                        <a href="#S">S</a>
+                    </dd>
+                    <dd data-magellan-arrival="T">
+                        <a href="#T">T</a>
+                    </dd>
+                    <dd data-magellan-arrival="U">
+                        <a href="#U">U</a>
+                    </dd>
+                    <dd data-magellan-arrival="V">
+                        <a href="#V">V</a>
+                    </dd>
+                    <dd data-magellan-arrival="W">
+                        <a href="#W">W</a>
+                    </dd>
+                    <dd data-magellan-arrival="X">
+                        <a href="#X">X</a>
+                    </dd>
+                    <dd data-magellan-arrival="Z">
+                        <a href="#Z">Z</a>
+                    </dd>
+                </dl>
+            </div>
+
+            <form action="." method="post">
+                {% csrf_token %}
+                <h4>Procure seu personagem</h4>
+                <input name="search_string" type="search" placeholder="Nome do personagem" style="width: 300px; height:100%; display: inline;" autocomplete="true" required >
+                <input type="submit" value="Buscar" class="small button alert">
+            </form>
+            {% for letter, chars in results.items %}
+
+                <a name="{{ letter|upper }}"></a>
+                <h3 style="display: inline">{{ letter|upper }}</h3>
+                <div class="row">
+                    <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-3" id="char-list">
+                        {% for char in chars %}
+                            {% if char.image.small_url %}
+                                <li>
+                                    <div class="th radius" style="padding:10px;">
+
+                                        <div class="text-center has-tip tip-top radius" style="width:100%; height:220px; overflow: hidden;" data-tooltip title="{{ char.deck }}">
+                                            <img src="{{ char.image.small_url }}" alt="imagem do personagem {{ char.name }}"></div>
+                                        <h5>{{ char.name }}</h5>
+                                        <a class="fi-book" href="{% url 'character' char.api_detail_url %}"> Ver mais</a>
+                                    </div>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                        <hr />
+                    </ul>
+                </div>
+            {% endfor %}
+
+        </div>
+        <div style="border-top:1px solid #930; background-color:#333; padding:10px 0 10px 0;">
+            <div class="row hide-for-small">
+                <div class="small-12 small-centered columns collapse" style="margin: 0 auto">
+                    <ul class="small-block-grid-6 hide-for-smal text-center" style="font-size:13px; display:inline">
+                        <li><a href="#">Personagens</a></li>
+                        <li><a href="#">Quadrinhos</a></li>
+                        <li><a href="#">Estatísticas</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="small-12 columns">
+                    <p style="color:#CCC; font-size:15px;">Todos os Personagens e histórias contidas neste site são propriedades de suas respectivas marcas.</p>
+                </div>
+            </div>
+        </div>
+        <!-- conteúdo do site -->
+{% endblock %}

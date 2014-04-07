@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<title>
+		teste
+		</title>
+	</head>
+	<body>
+		Encontrados:
+		Personagens:{{ personagens.number_of_total_results }}<br>
+		Filmes:{{ filmes.number_of_total_results }}<br>
+		Series:{{ series.number_of_total_results }}<br>
+		historias:{{ historias.number_of_total_results }}<br>
+		<br><br>
+		Personagens:<br>
+		{% for i in personagens.results %}
+			<img src = {{ i.image.medium_url }} width=200, height = 200 />
+			{{ i.name }}
+			{{ i.id }}
+			<br /><br />
+		{% endfor %}
+		Filmes:<br />
+		{% for i in filmes.results %}
+			<img src = {{ i.image.medium_url }} width=200, height = 200 />
+			{{ i.name }}
+			{{ i.id }}
+			<br /><br />
+		{% endfor %}
+	</body>
+</html>

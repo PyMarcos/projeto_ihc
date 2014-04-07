@@ -1,0 +1,13 @@
+<html>
+	<head>
+		<title>Detalhes do filme</title>
+	</head>
+	<body>
+		{{ filme.results.0.name }}<br><br>
+		{{ filme.results.0.id }}<br>
+		<img src = {{ filme.results.0.image.medium_url }} /><br>
+		{% autoescape off %}
+		{{ filme.results.0.description }}<br>
+		{% endautoescape %}
+	</body>
+</html>

@@ -1,0 +1,134 @@
+﻿{% extends "ihc/base.html" %}
+{% block content %}
+    <div class="inner-wrap">
+        <!-- First Band (Slider) -->
+        <div class="row">
+            <!-- Three-up Content Blocks -->
+            <div class="row">
+                <br>
+
+                <h1 class="attr-header">Detalhes do personagem</h1>
+
+                <div class="large-12 columns">
+                    <div>
+                        <div class="row">
+                            <div class="large-12 columns panel" >
+                                <h2 class="attr-header">{{ hero.name }}</h2>
+                                <hr/>
+                                <div class="row">
+
+                                    <div class="large-4 columns" style="max-height: 300px; overflow: hidden">
+                                        <img src="{{ hero.image.small_url }}" style="width: 300px;height:auto;" alt="foto do personagem {{ hero.name }}">
+                                    </div>
+
+                                    <div class="large-8 columns" >
+                                        <p style="float: right;">{{ hero.deck}}</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h3 class="attr-header">Atributos pessoais</h3>
+            <div class="row panel">
+
+                <div class="large-4 columns">
+                    <h4>Poderes</h4>
+                    <hr />
+                    <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-2 list">
+                        {% for power in hero.powers %}
+                            <li>{{ power.name }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="large-4 columns">
+                    <h4>Origem</h4>
+                    <hr />
+                    <ul class="list">
+                        <li>{{ hero.origin.name }}</li>
+                    </ul>
+                </div>
+
+                <div class="large-4 columns">
+                    <h4>Verdadeiro nome</h4>
+                    <hr />
+                    <ul class="list">
+                        <li>{{ hero.real_name }}</li>
+                    </ul>
+                </div>
+
+            </div>
+            <br />
+            <h4 class="attr-header">Editora {{ hero.publisher.name }}</h4>
+            <div class="row panel">
+
+                <div class="large-4 columns">
+                    <h4>Criadores</h4>
+                    <hr />
+                    <ul class="list">
+                        {% for creator in hero.creators %}
+                            <li>{{ creator.name }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <br />
+            <h3 class="attr-header">Participações</h3>
+            <div class="row panel">
+                <div class="large-12 medium-12 columns">
+                    <h4>Filmes</h4>
+                    <hr />
+                    <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-2 list">
+                        {% for movie in hero.movies %}
+                            <li><a href="{{ movie.site_detail_url }}">{{ movie.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+            </div>
+            <br />
+
+            <h3 class="attr-header">Relações</h3>
+            <div class="row panel">
+                <div class="large-6 medium-6 small-12 columns">
+                    <h4>Times Aliados</h4>
+                    <hr />
+                    <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-2 list">
+                        {% for team in hero.team_friends %}
+                            <li>{{ team.name }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="large-6 medium-6 small-12 columns">
+                    <h4>Times Inimigos</h4>
+                    <hr />
+                    <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-2 list">
+                        {% for team in hero.team_enemies %}
+                            <li>{{ team.name }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div style="border-top:1px solid #930; background-color:#333; padding:10px 0 10px 0;">
+            <div class="row hide-for-small">
+                <div class="small-12 small-centered columns collapse">
+                    <ul class="small-block-grid-6 hide-for-smal attr-header" style="font-size:13px;">
+                        <li><a href="#">Heróis</a></li>
+                        <li><a href="#">Quadrinhos</a></li>
+                        <li><a href="#">Estatísticas</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row attr-header">
+                <div class="small-12 columns">
+                    <p style="color:#CCC; font-size:15px;">Todos os Personagens e histórias contidas neste site são propriedades da Marvel.</p>
+                </div>
+            </div>
+        </div>
+        <!-- conteúdo do site -->
+{% endblock %}

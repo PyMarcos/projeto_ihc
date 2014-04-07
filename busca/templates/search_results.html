@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+        .container {
+            box-shadow: #000 1px 1px 5px;
+        }
+
+        .char-image {
+            width: 150px;
+            height: 150px;
+        }
+
+    </style>
+</head>
+<body>
+{% for char in chars %}
+    <div class="container" style="float: left; height: 200px; width: 200px; margin: 10px; padding: 5px; text-align: center">
+        {{ char.name }}
+        <div class="char-image" style="margin: 0 auto;background-image: url('{{ char.image.small_url }}'); background-size: cover; background-position: 50% 50%;"></div>
+        <a href="{% url 'hero' char.api_detail_url %}">Ver Detalhes</a>
+    </div>
+{% endfor %}
+</body>
+</html>

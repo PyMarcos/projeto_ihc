@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+{% load i18n %}
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en" >
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comic Universe</title>
+    <!-- If you are using CSS version, only link these 2 files, you may add app.css to use for your overrides if you like. -->
+    <link rel="shortcut icon" href="{{ STATIC_URL }}images/marvel-logo.jpg">
+
+    <link rel="stylesheet" href="{{ STATIC_URL }}foundation/css/normalize.css">
+    <link rel="stylesheet" href="{{ STATIC_URL }}foundation/css/foundation.css">
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}foundation/foundation-icons/foundation-icons.css">
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/site.css">
+
+    <script src="{{ STATIC_URL }}foundation/js/vendor/modernizr.js"></script>
+</head>
+<body>
+<!-- body content here -->
+<!-- tag para deslizar o site -->
+<div class="off-canvas-wrap">
+
+    <div class="fixed hide-for-small-only">
+        <nav class="top-bar">
+            <!-- Clique aqui para ativar o menu esquerdo -->
+            <ul class="title-area">
+                <li class="name" style="color:#FF2B30;">
+                    <h1 style="font-size:15px;">
+                        <a>Comic Universe</a>
+                    </h1>
+                </li>
+            </ul>
+            <section class="top-bar-section">
+
+                <div id="login-modal" class="reveal-modal tiny th" data-reveal="">
+                    <h3>Login</h3>
+
+                    <form action="#" method="post">
+                        <p class="sign">
+                            <label for="email-sign" class="step fi-torso size-30"></label>
+                            <input id="email-sign" type="text" placeholder="Nome de usuário" />
+                        </p>
+                        <p class="sign">
+                            <label for="pass-sign" class="step fi-lock size-30"></label>
+                            <input id="pass-sign" type="password" placeholder="Senha" />
+                        </p>
+                        <div id="login-btn-container">
+                            <input type="submit" value="Entrar" class="alert small button">
+                        </div>
+                        <a class="close-reveal-modal">×</a>
+                    </form>
+                </div>
+
+
+
+                <ul class="right">
+                    <li><a style="font-size: 30px" class="fi-home" href="{% url 'home' %}"></a></li>
+                    <li class="divider"></li>
+                    <li><a href="{% url 'characters' %}">Personagens</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Quadrinhos</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Estatísticas</a></li>
+                    <li class="has-form show-for-large-up">
+                    <li class="has-form">
+                        <div class="row collapse">
+                            <form method="post" class="row collapse" action="{% url "search" %}">
+                                {% csrf_token %}
+                                <div class="small-10 columns">
+                                    <input type="text" placeholder="Search your desire" name="search_string"/>
+                                </div>
+                                <div class="small-2 columns">
+                                    <a href="#" class="alert expand button" style="height:38px;">Go!</a>
+                                </div>
+                            </form>
+                        </div>
+                    </li>
+                    </li>
+                    <li>
+                        <a href="#" data-reveal-id="login-modal" ><span class="fi-torso" style="color: white; font-size: 14px; font-weight: 700"> Login</span></a>
+                    </li>
+                </ul>
+            </section>
+        </nav>
+    </div>
+
+    <div class="fixed show-for-small-only">
+        <nav class="top-bar">
+            <section class="top-bar-section">
+                <!-- Clique aqui para ativar o menu esquerdo -->
+                <a class="left-off-canvas-toggle menu-icon"><span>Comic Universe</span></a>
+            </section>
+        </nav>
+    </div>
+
+    <!-- todo o site deve estar dentro dessa tag -->
+    <div class="inner-wrap">
+        <div style="height:45px;"></div>
+
+        <section id="main-content">
+            {% block content %}
+            {% endblock %}
+        </section>
+
+        <!-- Menu esquedo abaixo -->
+        <aside class="left-off-canvas-menu" style="top:45px;">
+            <ul class="off-canvas-list">
+
+                <li class="has-form">
+                    <div class="row collapse">
+                        <form method="post" class="row collapse" action="{% url "search" %}">
+                            {% csrf_token %}
+                            <div class="small-10 columns">
+                                <input type="text" placeholder="Search your desire" name="search_string"/>
+                            </div>
+                            <div class="small-2 columns">
+                                <a href="#" class="alert expand button" style="height:38px;">Go!</a>
+                            </div>
+                        </form>
+                    </div>
+                </li>
+
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li class="divider"></li>
+                <li><a href="{% url 'characters' %}">Personagens</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Quadrinhos</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Estatísticas</a></li>
+                <li><a href="#" data-reveal-id="login-modal">Login</a></li>
+            </ul>
+        </aside>
+        <!-- Sair do menu esquerdo -->
+        <a class="exit-off-canvas"></a>
+    </div>
+</div>
+<script src="{{ STATIC_URL }}foundation/js/vendor/jquery.js"></script>
+<script src="{{ STATIC_URL }}foundation/js/foundation.min.js"></script>
+<script> $(document).foundation(); </script>
+</body>
+</html>

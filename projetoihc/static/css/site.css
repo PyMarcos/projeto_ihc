@@ -1,0 +1,89 @@
+@charset "utf-8";
+/* CSS Document */
+
+.th.radius-custom {
+    -webkit-border-radius: 90px;
+    border-radius: 90px;
+    overflow:hidden;
+}
+
+.sombra {
+    -webkit-box-shadow: 0 0 6px 1px rgba(255, 0, 0, 0.5);
+    box-shadow: 0 0 6px 1px rgba(255, 0, 0, 0.5);
+}
+
+
+*.sub-nav-custom dd
+{
+    float: left;
+    display: inline;
+    margin-left: 0rem;
+    margin-bottom: 0.625rem;
+    font-weight: normal;
+    font-size: 0.70rem;
+    color: #903;
+}
+
+div#login-btn-container {
+    height: 30px;
+}
+
+.size-12 { font-size: 12px; }
+
+.size-14 { font-size: 14px; }
+
+.size-16 { font-size: 16px; }
+
+.size-18 { font-size: 18px; }
+
+.size-21 { font-size: 21px; }
+
+.size-24 { font-size: 24px; }
+
+.size-30 { font-size: 30px; }
+
+.size-36 { font-size: 36px; }
+
+.size-48 { font-size: 48px; }
+
+.size-60 { font-size: 60px; }
+
+.size-72 { font-size: 72px; }
+
+p.sign > input {
+    display: inline;
+    width: 80%;
+}
+
+.fi-at-sign {
+    margin: 0;
+    padding: 0;
+}
+
+.step {
+    background: #eeeeee;
+    border-radius: 5px 0 0 5px;
+    padding: 0 5px;
+    margin-right: -1px;
+    display: inline;
+    position: relative;
+    top: 6px;
+    border: #b9b9b9 solid 1px;
+}
+
+#footer-links {
+    border-bottom: #4e4e4e solid 1px;
+}
+
+.attr-header {
+    text-align: center;
+}
+
+.list {
+    list-style: none;
+}
+
+.img-circle{
+    border-radius: 50%;
+
+}
